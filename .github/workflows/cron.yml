@@ -15,6 +15,6 @@ jobs:
         with:
           persist-credentials: false
       - name: Install
-        run: pip install -r requirements.txt
+        run: pip3 install -r requirements.txt
       - name: run
         run: python3 ias.py

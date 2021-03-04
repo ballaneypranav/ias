@@ -3,6 +3,8 @@ name: Regular Check
 on:
   schedule:
     - cron: '*/4 * * * *'
+  push:
+    branches: [ master ]
 
 jobs:
   main:

@@ -1,0 +1,12 @@
+name: Regular Check
+
+on:
+  schedule:
+    - cron: '*/4 * * * *'
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - name: run
+        run: python3 ias.py

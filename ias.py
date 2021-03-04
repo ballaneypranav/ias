@@ -1,5 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
+import discord_notify as dn
+import os
 
 s = requests.Session()
 API_url = 'https://webjapps.ias.ac.in/fellowship2021/lists/selectedList.jsp'
@@ -16,5 +18,10 @@ params = {'subject': 'Lif'}
 r = s.get(API_url, params=params, headers=request_headers)
 soup = BeautifulSoup(r.content, 'html5lib')
 
+discordURL = os.environ.get('DISCORDURL')
+notifier = dn.Notifier(discordURL)
+
 if "Ballaney, Mr Pranav" in str(soup):
-    print("yes")
+    notifier.send("Yayyyy!", print_message=False)
+
+notifier.send("Yayyyy!", print_message=False)

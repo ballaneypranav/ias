@@ -18,8 +18,9 @@ params = {'subject': 'Lif'}
 r = s.get(API_url, params=params, headers=request_headers)
 soup = BeautifulSoup(r.content, 'html5lib')
 
-discordURL = os.environ.get('DISCORDURL')
-notifier = dn.Notifier(discordURL)
+DISCORD_URL = os.environ.get('DISCORD_URL')
+print(DISCORD_URL)
+notifier = dn.Notifier(DISCORD_URL)
 
 if "Ballaney, Mr Pranav" in str(soup):
     notifier.send("Yayyyy!", print_message=False)
